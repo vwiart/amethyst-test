@@ -6,9 +6,7 @@ use amethyst::renderer::{
     Camera, Flipped, PngFormat, Projection, SpriteRender, SpriteSheet, SpriteSheetFormat,
     SpriteSheetHandle, Texture, TextureMetadata,
 };
-use amethyst::ui::{
-    Anchor, TtfFormat, UiText, UiTransform
-};
+use amethyst::ui::{Anchor, TtfFormat, UiText, UiTransform};
 
 // arena
 pub const ARENA_HEIGHT: f32 = 100.0;
@@ -194,12 +192,24 @@ fn initialise_scoreboard(world: &mut World) {
         &world.read_resource(),
     );
     let p1_transform = UiTransform::new(
-        "P1".to_string(), Anchor::TopMiddle,
-        -50., -50., 1., 200., 50., 0,
+        "P1".to_string(),
+        Anchor::TopMiddle,
+        -50.,
+        -50.,
+        1.,
+        200.,
+        50.,
+        0,
     );
     let p2_transform = UiTransform::new(
-        "P2".to_string(), Anchor::TopMiddle,
-        50., -50., 1., 200., 50., 0,
+        "P2".to_string(),
+        Anchor::TopMiddle,
+        50.,
+        -50.,
+        1.,
+        200.,
+        50.,
+        0,
     );
 
     let p1_score = world
@@ -210,7 +220,8 @@ fn initialise_scoreboard(world: &mut World) {
             "0".to_string(),
             [1., 1., 1., 1.],
             50.,
-        )).build();
+        ))
+        .build();
 
     let p2_score = world
         .create_entity()
@@ -220,7 +231,8 @@ fn initialise_scoreboard(world: &mut World) {
             "0".to_string(),
             [1., 1., 1., 1.],
             50.,
-        )).build();
+        ))
+        .build();
 
     world.add_resource(ScoreText { p1_score, p2_score });
 }
